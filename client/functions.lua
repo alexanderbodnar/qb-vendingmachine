@@ -56,7 +56,7 @@ WaitForModel = function(model)
     end
 
     if not IsModelValid(model) then
-        return TriggerEvent('SNZ_UI:AddNotification', 'AUTOMAT', 'Tento automat nie je funkčný!', 5000, 'fas fa-inbox')
+        return TriggerClientEvent('QBCore:Notify', "This vending machine is not working!", "error")
     end
 
 	if not HasModelLoaded(model) then

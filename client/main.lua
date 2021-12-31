@@ -80,13 +80,11 @@ PurchaseDrink = function(coords,maquina)
     QBCore.Functions.TriggerCallback("qb-vendingmachine:money_check", function(validated)
         if validated then
 			not_in_anim = false
-			TriggerEvent('SNZ_UI:AddNotification', 'AUTOMAT', 'Kúpil si Colu', 2000, 'fas fa-inbox')
-			--TriggerEvent('QBCore:Notify', "You bought cola!", "success")
+			TriggerEvent('QBCore:Notify', "You bought cola!", "success")
 			ExecuteAnimation(coords,maquina)
         else
 			not_in_anim = true
-		   TriggerEvent('SNZ_UI:AddNotification', 'AUTOMAT', 'Nemáš dosť peňazí', 2000, 'fas fa-inbox')
-		   --TriggerEvent('QBCore:Notify', "You dont have enough money!", "error")
+			TriggerEvent('QBCore:Notify', "You dont have enough money!", "error")
         end
     end)
 end
@@ -181,11 +179,11 @@ function sub_35e89(a_0)
             DetachEntity(l_37, 1, 1)
             if (a_0) then
                 ApplyForceToEntity(l_37, 1, 6.0, 10.0, 2.0, 0.0, 0.0, 0.0, 0, 1, 1, 0, 0, 1)
+				DeleteObject(l_37)
             end
         end
 		FreezeEntityPosition(PlayerPedId(),false)
         SetObjectAsNoLongerNeeded(l_37)
-		DeleteObject(l_37)
 		object_created = false
 		l_37 = nil
     end
