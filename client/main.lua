@@ -34,7 +34,7 @@ CreateThread(function()
 			local table = {
 				['key'] = 'E', -- key
 				['event'] = 'script:myevent',
-				['title'] = '[E] Kúpiť Colu',
+				['title'] = '[E] Buy Cola',
 				['invehicle_title'] = 'BUY COLA',
 				['server_event'] = false, -- server event or client
 				['unpack_arg'] = false, -- send args as unpack 1,2,3,4 order
