@@ -1,6 +1,8 @@
 # qb-vendingmachine
 This is a simple vending machine script converted from ESX to QBCore
 
+- Fixed Spawning extreme amount of can when rotating away from the vending machine
+
 
 # DEPENDENCIES
 - QBCore
