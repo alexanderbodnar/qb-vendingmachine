@@ -34,13 +34,13 @@ CreateThread(function()
 			local table = {
 				['key'] = 'E', -- key
 				['event'] = 'script:myevent',
-				['title'] = '[E] Buy Cola',
+				['title'] = '[E] Kúpiť Colu',
 				['invehicle_title'] = 'BUY COLA',
 				['server_event'] = false, -- server event or client
 				['unpack_arg'] = false, -- send args as unpack 1,2,3,4 order
 				['fa'] = '<i class="fal fa-wine-bottle"></i>',
 				['custom_arg'] = {}, -- example: {1,2,3,4}
-		}
+			}
 		
 			if distanceCheck1 <= 0.5 then
 				
@@ -79,10 +79,14 @@ end)
 PurchaseDrink = function(coords,maquina)
     QBCore.Functions.TriggerCallback("qb-vendingmachine:money_check", function(validated)
         if validated then
-			TriggerEvent('QBCore:Notify', "You bought cola!", "success")
+			not_in_anim = false
+			TriggerEvent('SNZ_UI:AddNotification', 'AUTOMAT', 'Kúpil si Colu', 2000, 'fas fa-inbox')
+			--TriggerEvent('QBCore:Notify', "You bought cola!", "success")
 			ExecuteAnimation(coords,maquina)
         else
-		   TriggerEvent('QBCore:Notify', "You dont have enough money!", "error")
+			not_in_anim = true
+		   TriggerEvent('SNZ_UI:AddNotification', 'AUTOMAT', 'Nemáš dosť peňazí', 2000, 'fas fa-inbox')
+		   --TriggerEvent('QBCore:Notify', "You dont have enough money!", "error")
         end
     end)
 end
@@ -164,6 +168,7 @@ function ExecuteAnimation(CoordsMaquina,maquina,src)
 					end
 					HintAmbientAudioBank("VENDING_MACHINE", 0);
 					sub_35e89(1);
+					not_in_anim = true
 					break
 				end
 			end
@@ -181,8 +186,8 @@ function sub_35e89(a_0)
 		FreezeEntityPosition(PlayerPedId(),false)
         SetObjectAsNoLongerNeeded(l_37)
 		DeleteObject(l_37)
+		object_created = false
 		l_37 = nil
-		not_in_anim = true
     end
 end
 
