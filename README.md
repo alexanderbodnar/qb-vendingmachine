@@ -20,3 +20,5 @@ This is a simple vending machine script converted from ESX to QBCore
 
 ![image](https://user-images.githubusercontent.com/62212268/147826234-363db290-17eb-48fc-9e69-408c367ce9ea.png)
 
+
+- If any issues. Open a new issue and i will try to fix it.
